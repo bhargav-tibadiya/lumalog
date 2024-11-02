@@ -58,27 +58,21 @@ You are 25 years old
 
 ## API Reference
 
-### sayHello Function
+- **`slog(message: string): void`**: Prints a styled message to the console using the current style configuration.
+- **`setStyles(config: LogStyleConfig): void`**: Updates the default styling for all future `slog` messages.
+- **`sayHello(props: sayHelloProps): void`**: Outputs a formatted greeting message to the console.
 
-The `sayHello` function outputs a friendly and personalized message to the console.
+## Types
 
-#### Parameters
+To control and configure your log styles, use the following types:
 
-- **`firstName`** (string) - The first name of the person to greet.
-- **`lastName`** (optional, string) - The last name of the person to greet.
-- **`age`** (optional, number) - The age of the person being greeted.
+### LogStyleConfig
 
-#### TypeScript Definition
-
-The parameters are defined by the `sayHelloProps` type:
-
-```typescript
-export type sayHelloProps = {
-  firstName: string;
-  lastName?: string;
-  age?: number;
-};
-```
+| Property   | Type     | Default  | Description                 |
+|------------|----------|----------|-----------------------------|
+| `color`      | string   | `black` | Text color for the log     
+| `fontSize`   | string   | `12px`  | Font size of the log text  
+| `fontWeight` | string   | `500`   | Font weight of the log text
 
 ## Contributing
 
