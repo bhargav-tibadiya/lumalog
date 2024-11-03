@@ -1,4 +1,4 @@
-import { logConfig, sayHelloProps } from "./types";
+import { logConfig, logGroupProps, sayHelloProps } from "./types";
 
 // Default styles
 let defaultStyles: logConfig = {
@@ -29,4 +29,15 @@ export const setStyles = (config: logConfig) => {
 export const slog = (message: string) => {
   const styleString = `color: ${defaultStyles.color}; font-size: ${defaultStyles.fontSize}; font-weight: ${defaultStyles.fontWeight};`;
   console.log(`%c${message}`, styleString);
+};
+
+
+export const glog = ({ title, items }: logGroupProps) => {
+  console.group(title); 
+
+  items.forEach((item, index) => {
+    console.log(`${index + 1}. ${item}`);
+  });
+
+  console.groupEnd(); 
 };

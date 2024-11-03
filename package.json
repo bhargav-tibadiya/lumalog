@@ -1,6 +1,6 @@
 {
   "name": "lumalog",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A colorful and meaningful console log beautifier for enhanced logging experience",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

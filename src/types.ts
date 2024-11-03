@@ -9,3 +9,8 @@ export interface logConfig {
   fontSize?: string;
   fontWeight?: string;
 }
+
+export type logGroupProps = {
+  title: string;
+  items: string[];
+};
