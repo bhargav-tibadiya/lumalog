@@ -1,6 +1,6 @@
 ﻿# LumaLog
 
-**LumaLog** is a simple and customizable logging utility that enhances the console output with structured and personalized messages. Whether for debugging or adding a touch of style to your console logs, LumaLog makes it easy to display friendly messages in a consistent format.
+**LumaLog** is a simple and customizable logging utility that enhances console output with structured and personalized messages. Whether for debugging or adding a touch of style to your console logs, LumaLog makes it easy to display friendly messages in a consistent format.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -11,6 +11,7 @@
   - [slog Function](#slog-function)
   - [setStyles Function](#setstyles-function)
   - [glog Function](#glog-function)
+  - [tlog Function](#tlog-function)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -35,7 +36,7 @@ yarn add lumalog
 After installing, you can import functions from the `lumalog` package and start using them in your project:
 
 ```typescript
-import { sayHello, slog, setStyles, glog } from 'lumalog';
+import { sayHello, slog, setStyles, glog, tlog } from 'lumalog';
 
 sayHello({
   firstName: 'Jane',
@@ -55,9 +56,16 @@ glog({
   title: "Tasks for Today",
   items: ["Check emails", "Review PRs", "Plan feature roadmap"]
 });
+
+const users = [
+  { name: 'John', age: 30 },
+  { name: 'Jane', age: 25 }
+];
+tlog(users);
 ```
 
 ### Console Output
+
 The `sayHello` function will produce a structured output in the console, such as:
 
 ```
@@ -81,12 +89,24 @@ Tasks for Today
   3. Plan feature roadmap
 ```
 
+The `tlog` function will display the `users` data in table format:
+
+```
+┌─────────┬─────────┬─────┐
+│ (index) │  name   │ age │
+├─────────┼─────────┼─────┤
+│    0    │ 'John'  │ 30  │
+│    1    │ 'Jane'  │ 25  │
+└─────────┴─────────┴─────┘
+```
+
 ## API Reference
 
 - **`sayHello(props: sayHelloProps): void`**: Outputs a formatted greeting message to the console.
 - **`slog(message: string): void`**: Prints a styled message to the console using the current style configuration.
 - **`setStyles(config: LogStyleConfig): void`**: Updates the default styling for all future `slog` messages.
 - **`glog({ title, items }: LogGroupProps): void`**: Logs a group of messages under a title, where `items` is an array of strings.
+- **`tlog(data: TableLogData[]): void`**: Logs an array of objects in table format, useful for displaying structured data.
 
 ## Types
 
@@ -94,9 +114,9 @@ Tasks for Today
 
 | Property   | Type     | Default  | Description                 |
 |------------|----------|----------|-----------------------------|
-| `color`      | string   | `black` | Text color for the log     
-| `fontSize`   | string   | `12px`  | Font size of the log text  
-| `fontWeight` | string   | `500`   | Font weight of the log text
+| `color`      | string   | `black` | Text color for the log     |
+| `fontSize`   | string   | `12px`  | Font size of the log text  |
+| `fontWeight` | string   | `500`   | Font weight of the log text|
 
 ### LogGroupProps
 
@@ -104,6 +124,10 @@ Tasks for Today
 |----------|----------|-------------------------------------------|
 | `title`  | string   | The title under which to group messages   |
 | `items`  | string[] | The array of messages to log under `title`|
+
+### TableLogData
+
+An object representing a row of data to display in table format, where each key is a column name.
 
 ## Contributing
 
@@ -118,3 +142,4 @@ Contributions to LumaLog are welcome! If you'd like to improve the package, feel
 ## License
 
 LumaLog is licensed under the MIT License.
+

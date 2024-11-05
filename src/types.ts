@@ -14,3 +14,7 @@ export type logGroupProps = {
   title: string;
   items: string[];
 };
+
+export type tableProps = {
+  [key: string]: any;
+};
