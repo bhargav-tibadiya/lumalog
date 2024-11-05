@@ -13,6 +13,7 @@
   - [glog Function](#glog-function)
   - [tlog Function](#tlog-function)
 - [Contributing](#contributing)
+- [Use Case Article](#article)
 - [License](#license)
 
 ## Installation
@@ -138,6 +139,10 @@ Contributions to LumaLog are welcome! If you'd like to improve the package, feel
 3. Commit your changes (`git commit -m 'Add a new feature'`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Open a pull request.
+
+## Article
+
+[Check Out The Article](https://medium.com/@bhargavtibadiya/boost-your-console-output-with-lumalog-0f06a6d7d42a)
 
 ## License
 
