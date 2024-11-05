@@ -1,4 +1,4 @@
-import { logConfig, logGroupProps, sayHelloProps } from "./types";
+import { logConfig, logGroupProps, sayHelloProps, tableProps } from "./types";
 
 // Default styles
 let defaultStyles: logConfig = {
@@ -33,11 +33,15 @@ export const slog = (message: string) => {
 
 
 export const glog = ({ title, items }: logGroupProps) => {
-  console.group(title); 
+  console.group(title);
 
   items.forEach((item, index) => {
     console.log(`${index + 1}. ${item}`);
   });
 
-  console.groupEnd(); 
+  console.groupEnd();
+};
+
+export const tlog = (data: tableProps[]) => {
+  console.table(data);
 };
